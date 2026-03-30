@@ -1,6 +1,6 @@
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
 export default function Input({
