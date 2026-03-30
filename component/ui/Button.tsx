@@ -41,6 +41,7 @@ export default function Button({
         ${border ? `border ${borderClass}` : "border-none"}
         font-medium px-8 py-3.5 rounded-full
         flex items-center gap-2 hover:gap-3 cursor-pointer
+        dark:shadow-none
         ${shadow ? `${shadowSize} ${shadowClass} ${hoverShadowClass}` : "shadow-none"}
         transition-all duration-300 ease-in-out
       `}

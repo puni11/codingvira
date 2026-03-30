@@ -19,12 +19,12 @@ const HeroSection = () => {
         <div className="flex flex-col items-start space-y-8">
           
           {/* Tag Pill */}
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-violet-100 border border-slate-100 text-sm font-medium text-violet-500">
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-violet-100 dark:border-gray-800 dark:bg-black dark:backdrop-blur-md border border-slate-100 text-sm font-medium text-violet-500">
             Keep an eye on your finances
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl md:text-5xl lg:text-[3rem] font-medium tracking-tight text-slate-900 leading-[1.1]">
+          <h1 className="text-5xl md:text-5xl lg:text-[3rem] font-medium tracking-tight text-slate-900 leading-[1.1] dark:text-slate-100">
             Managed Services For <br />
             Buiness Success
           </h1>
@@ -61,7 +61,7 @@ const HeroSection = () => {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-bold text-slate-900">Trusted by 20k+</span>
+              <span className="text-sm font-bold text-slate-900 dark:text-slate-100">Trusted by 20k+</span>
               <span className="text-xs text-slate-500">Customers Across the Globe</span>
             </div>
           </div>

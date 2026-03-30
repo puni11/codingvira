@@ -1,24 +1,20 @@
-const InputGroup = ({
-  label,
-  placeholder,
-  type,
-}: {
-  label: string;
-  placeholder: string;
-  type: string;
-}) => {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  icon: React.ReactNode;
+}
+
+export default function Input({
+  icon,
+  ...props
+}: InputProps) {
   return (
-    <div className="flex flex-col gap-2">
-      <label className="text-sm  text-slate-900">
-        {label}
-      </label>
+    <div className="relative">
+      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+        {icon}
+      </span>
       <input
-        type={type}
-        placeholder={placeholder}
-        className="w-full rounded-full border border-slate-200 px-6 py-3.5 text-slate-600 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all bg-white"
+        {...props}
+        className="w-full bg-gray-50 border border-gray-200 text-gray-700 rounded-xl py-2.5 pl-10 pr-4 text-sm focus:ring-2 focus:ring-black/10 outline-none"
       />
     </div>
   );
-};
-
-export default InputGroup;
+}

@@ -131,7 +131,7 @@ const Navbar = () => {
         ease: [0.25, 0.4, 0.25, 1],
         delay: 0.2,
       }}
-      className="w-full backdrop-blur-md border-b border-gray-100 py-4 px-6 md:px-12 fixed top-0 z-50 font-sans "
+      className="w-full bg-gray-50 border-b border-gray-100 py-4 px-6 md:px-12 fixed top-0 z-50 font-sans "
       onMouseLeave={() => setHoveredTab(null)}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">

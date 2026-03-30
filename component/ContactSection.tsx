@@ -9,26 +9,60 @@ import ContactCard from "./ui/ContactCard";
 const ContactSection = () => {
   // --- STATE FOR BUTTON ANIMATION ---
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success">("idle");
+const [error, setError] = useState("");
+const [formData, setFormData] = useState({
+  name: "",
+  phone: "",
+  email: "",
+  subject: "",
+  message: "",
+});
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (formStatus !== "idle") return;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Prevent double clicks
-    if (formStatus !== "idle") return;
+  // 🔥 FRONTEND VALIDATION
+  if (formData.name.length < 2)
+    return setError("Name must be at least 2 characters");
 
-    // 1. Start Loading
-    setFormStatus("loading");
+  if (!/\S+@\S+\.\S+/.test(formData.email))
+    return setError("Invalid email");
 
-    // 2. Simulate API Request (2 seconds)
-    setTimeout(() => {
-      setFormStatus("success");
+  if (formData.message.length < 10)
+    return setError("Message must be at least 10 characters");
 
-      // 3. Reset to Idle after 3 seconds
-      setTimeout(() => {
-        setFormStatus("idle");
-      }, 3000);
-    }, 2000);
-  };
+  setError("");
+  setFormStatus("loading");
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      setError(data.error);
+      setFormStatus("idle");
+      return;
+    }
+
+    setFormStatus("success");
+    setFormData({
+  name: "",
+  phone: "",
+  email: "",
+  subject: "",
+  message: "",
+})
+setTimeout(() => setFormStatus("idle"), 3000);
+  } catch (err) {
+    setError("Network error");
+    setFormStatus("idle");
+  }
+};
 
   return (
     <section className="w-full bg-[#F9FAFB] py-36 px-6 font-sans">
@@ -75,90 +109,146 @@ const ContactSection = () => {
           {/* --- RIGHT COLUMN: CONTACT FORM --- */}
           <div className="lg:col-span-8 bg-white rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-slate-100">
             <form className="space-y-8" onSubmit={handleSubmit}>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <InputGroup label="Your name" placeholder="Enter your name" type="text" />
-                <InputGroup label="Your number" placeholder="Enter your number" type="tel" />
-              </div>
+  {error && (
+    <p className="text-red-500 text-sm font-medium">
+      {error}
+    </p>
+  )}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    
+    <InputGroup
+      label="Your name"
+      placeholder="Enter your name"
+      type="text"
+      required
+      value={formData.name}
+      onChange={(e: any) =>
+        setFormData({ ...formData, name: e.target.value })
+      }
+    />
 
-              <InputGroup label="Email address" placeholder="Enter your email" type="email" />
-              <InputGroup label="Subject" placeholder="Enter your subject" type="text" />
+    <InputGroup
+      label="Your number"
+      placeholder="Enter your number"
+      type="tel"
+      required
+      value={formData.phone}
+      onChange={(e: any) =>
+        setFormData({ ...formData, phone: e.target.value })
+      }
+    />
+  </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="text-sm  text-slate-900">Write message</label>
-                <textarea 
-                  rows={6}
-                  placeholder="Enter your messages"
-                  className="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-600 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all resize-none bg-white"
-                />
-              </div>
+  <InputGroup
+    label="Email address"
+    placeholder="Enter your email"
+    type="email"
+    required
+    value={formData.email}
+    onChange={(e: any) =>
+      setFormData({ ...formData, email: e.target.value })
+    }
+  />
 
-              <div className="flex items-center gap-3">
-                 <input type="checkbox" id="terms" className="w-5 h-5 rounded border-gray-300 text-slate-900 focus:ring-slate-900" />
-                 <label htmlFor="terms" className="text-sm text-slate-500">
-                    I agree with the <a href="#" className="text-blue-600 underline">terms and conditions</a>
-                 </label>
-              </div>
+  <InputGroup
+    label="Subject"
+    placeholder="Enter your subject"
+    type="text"
+    value={formData.subject}
+    onChange={(e: any) =>
+      setFormData({ ...formData, subject: e.target.value })
+    }
+  />
 
-              {/* --- ANIMATED BUTTON --- */}
-              <button 
-                type="button" 
-                onClick={handleSubmit} // Using onClick as requested
-                disabled={formStatus !== "idle"}
-                className={`w-full py-4 rounded-full  transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95
-                  ${formStatus === "success" 
-                    ? "bg-violet-600 hover:bg-violet-700 text-white" 
-                    : "bg-[#1A1A1A] hover:bg-black text-white"
-                  }
-                  ${formStatus === "loading" ? "cursor-wait opacity-90" : ""}
-                `}
-              >
-                <AnimatePresence mode="popLayout" initial={false}>
-                  
-                  {/* IDLE STATE */}
-                  {formStatus === "idle" && (
-                    <motion.span 
-                      key="idle"
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -15 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      Submit
-                    </motion.span>
-                  )}
+  {/* MESSAGE */}
+  <div className="flex flex-col gap-2">
+    <label className="text-sm text-slate-900">Write message</label>
+    <textarea
+      rows={6}
+      required
+      value={formData.message}
+      onChange={(e) =>
+        setFormData({ ...formData, message: e.target.value })
+      }
+      placeholder="Enter your message"
+      className="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-600 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all resize-none bg-white"
+    />
+  </div>
 
-                  {/* LOADING STATE */}
-                  {formStatus === "loading" && (
-                    <motion.span 
-                      key="loading"
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -15 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                    </motion.span>
-                  )}
+  {/* TERMS */}
+  <div className="flex items-center gap-3">
+    <input
+      type="checkbox"
+      id="terms"
+      required
+      className="w-5 h-5 rounded border-gray-300 text-slate-900 focus:ring-slate-900"
+    />
+    <label htmlFor="terms" className="text-sm text-slate-500">
+      I agree with the{" "}
+      <a href="#" className="text-violet-600 underline">
+        terms and conditions
+      </a>
+    </label>
+  </div>
 
-                  {/* SUCCESS STATE */}
-                  {formStatus === "success" && (
-                    <motion.span 
-                      key="success"
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -15 }}
-                      transition={{ duration: 0.2 }}
-                      className="flex items-center gap-2"
-                    >
-                      <Check className="w-5 h-5" /> Message Sent
-                    </motion.span>
-                  )}
+  {/* ERROR MESSAGE */}
+  
 
-                </AnimatePresence>
-              </button>
+  {/* BUTTON */}
+  <button
+    type="submit"
+    disabled={formStatus !== "idle"}
+    className={`w-full py-4 rounded-full transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95
+      ${
+        formStatus === "success"
+          ? "bg-violet-600 hover:bg-violet-700 text-white"
+          : "bg-[#1A1A1A] hover:bg-black text-white"
+      }
+      ${formStatus === "loading" ? "cursor-wait opacity-90" : ""}
+    `}
+  >
+    <AnimatePresence mode="popLayout" initial={false}>
+      
+      {formStatus === "idle" && (
+        <motion.span
+          key="idle"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -15 }}
+          transition={{ duration: 0.2 }}
+        >
+          Submit
+        </motion.span>
+      )}
 
-            </form>
+      {formStatus === "loading" && (
+        <motion.span
+          key="loading"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -15 }}
+          transition={{ duration: 0.2 }}
+        >
+          <Loader2 className="w-5 h-5 animate-spin" />
+        </motion.span>
+      )}
+
+      {formStatus === "success" && (
+        <motion.span
+          key="success"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -15 }}
+          transition={{ duration: 0.2 }}
+          className="flex items-center gap-2"
+        >
+          <Check className="w-5 h-5" /> Message Sent
+        </motion.span>
+      )}
+    </AnimatePresence>
+  </button>
+
+</form>
           </div>
 
         </div>
