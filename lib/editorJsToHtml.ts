@@ -1,12 +1,17 @@
-export function editorJsToHtml(content: any) {
+export function editorJsToHtml(content: any): string {
   if (!content?.blocks) return "";
 
-  const parseText = (data: any) => {
+  const parseText = (data: any): string => {
     if (typeof data === "string") return data;
-    if (Array.isArray(data)) return data.map(parseText).join("");
+
+    if (Array.isArray(data)) {
+      return data.map(parseText).join("");
+    }
+
     if (typeof data === "object" && data !== null) {
       return Object.values(data).map(parseText).join("");
     }
+
     return "";
   };
 
