@@ -1,7 +1,12 @@
 // Core Editor.js
 declare module "@editorjs/editorjs" {
-  const EditorJS: any;
-  export default EditorJS;
+  export default class EditorJS {
+    constructor(config?: any);
+    isReady: Promise<void>;
+    save(): Promise<any>;
+    destroy(): void;
+    clear(): void;
+  }
 }
 
 // Common Tools
@@ -96,3 +101,4 @@ declare module "@editorjs/personality" {
   const Personality: any;
   export default Personality;
 }
+
