@@ -2,34 +2,43 @@
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
+
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
+
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+
     "jsx": "react-jsx",
     "incremental": true,
+
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+
+    // ✅ IMPORTANT (for your editorjs.d.ts)
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
+
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.d.ts",  // ✅ ADD THIS LINE
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.d.ts",
+    ".next/types/**/*.ts"
   ],
+
   "exclude": ["node_modules"]
 }
