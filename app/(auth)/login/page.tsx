@@ -72,10 +72,7 @@ export default function LoginPage() {
           </form>
 
           <p className="text-xs text-gray-500 mt-8 text-center">
-            Don&apos;t have an account?{" "}
-            <span onClick={() => router.push("/register")} className="text-black font-semibold cursor-pointer">
-              Create one
-            </span>
+            For admin access, contact support
           </p>
         </div>
       </div>
