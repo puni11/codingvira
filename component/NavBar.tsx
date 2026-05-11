@@ -99,6 +99,7 @@ const NAV_LINKS: NavItem[] = [
     ],
   },
   { label: "Blog", hasDropdown: false },
+  { label: "Verify Certificate", href:'/verify-certificate', hasDropdown: false },
   { label: "Contact us", href:'/contact-us', hasDropdown: false },
 ];
 
