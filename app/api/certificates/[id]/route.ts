@@ -1,16 +1,17 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/authOptions";
 import clientPromise from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 
 export async function DELETE(
-  req: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check authentication
     const session = await getServerSession(authOptions);
+
     if (!session) {
       return NextResponse.json(
         { message: "Unauthorized. Please log in." },
@@ -18,7 +19,8 @@ export async function DELETE(
       );
     }
 
-    const { id } = params;
+    // Await params
+    const { id } = await params;
 
     if (!id) {
       return NextResponse.json(
@@ -47,6 +49,7 @@ export async function DELETE(
     });
   } catch (err) {
     console.error("Certificate deletion error:", err);
+
     return NextResponse.json(
       { message: "Failed to delete certificate" },
       { status: 500 }
