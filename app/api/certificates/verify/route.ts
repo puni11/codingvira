@@ -18,12 +18,7 @@ export async function GET(req: Request) {
     const db = client.db("test");
 
     // Try to find by certificate number or ID
-    let certificate = await db.collection("certificates").findOne({
-      $or: [
-        { _id: new ObjectId(certificateId) },
-        { certificateNo: certificateId },
-      ],
-    });
+    const certificate = await db.collection("certificates").findOne({ certificateNo: certificateId });
 
     if (!certificate) {
       return NextResponse.json(

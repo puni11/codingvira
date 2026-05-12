@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutDashboard, Users, Settings, Loader2, CheckCircle, LogOut, PenSquareIcon, ListCheckIcon, UserCheck2 } from "lucide-react";
+import { LayoutDashboard, Users, Settings, Loader2, CheckCircle, LogOut, PenSquareIcon, ListCheckIcon, UserCheck2, AwardIcon } from "lucide-react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -31,7 +31,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
      { name: "Create Blog", href: "/dashboard/blog/create", icon: PenSquareIcon },
       { name: "Blog List", href: "/dashboard/blog", icon: ListCheckIcon },
         { name: "Enquiry", href: "/dashboard/contacts", icon: UserCheck2 },
-    { name: "Users", href: "/dashboard/users", icon: Users },
+    { name: "Certificates", href: "/dashboard/certificates", icon: AwardIcon },
     { name: "Settings", href: "/dashboard/settings", icon: Settings },
   ];
 

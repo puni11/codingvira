@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -145,10 +146,10 @@ export default function CertificatesAdminPage() {
 
   if (status === "loading" || fetchingCerts) {
     return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4" />
-          <p className="text-slate-600">Loading...</p>
+          <Loader2 className="w-8 h-8 text-black animate-spin mx-auto mb-4" />
+          <p className="text-sm text-slate-500 font-medium">Loading...</p>
         </div>
       </div>
     );
@@ -159,126 +160,110 @@ export default function CertificatesAdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2">
+    <div className="min-h-screen bg-white py-12 px-4 md:px-8 font-sans text-slate-900">
+      <div className="">
+        {/* Header - Aligned to the left, bold dark text */}
+        <div className="mb-10 pb-6 border-b border-gray-100">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 mb-2">
             Certificate Management
           </h1>
-          <p className="text-lg text-slate-600">
-            Add and manage student certificates
+          <p className="text-slate-500">
+            Add and manage student certificates for verification.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Add Certificate Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          
+          {/* Add Certificate Form - Flat design, light borders */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-8">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <Plus className="w-6 h-6" />
-                Add Certificate
+            <div className="border border-gray-200 rounded-xl p-6 sticky top-8">
+              <h2 className="text-xl font-bold text-slate-900 mb-6">
+                Add New Certificate
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Student Name */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Student Name *
-                  </label>
                   <input
                     type="text"
                     name="studentName"
                     value={form.studentName}
                     onChange={handleInputChange}
-                    placeholder="Enter student name"
-                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                    placeholder="Student Name *"
+                    className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-black transition"
                   />
                 </div>
 
                 {/* Domain */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Domain/Course *
-                  </label>
                   <input
                     type="text"
                     name="domain"
                     value={form.domain}
                     onChange={handleInputChange}
-                    placeholder="e.g., Web Development"
-                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                    placeholder="Domain / Course *"
+                    className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-black transition"
                   />
                 </div>
 
                 {/* Duration */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Duration
-                  </label>
                   <input
                     type="text"
                     name="duration"
                     value={form.duration}
                     onChange={handleInputChange}
-                    placeholder="e.g., 4 weeks"
-                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                    placeholder="Duration (e.g., 4 weeks)"
+                    className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-black transition"
                   />
                 </div>
 
                 {/* Certificate Number */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Certificate No *
-                  </label>
                   <input
                     type="text"
                     name="certificateNo"
                     value={form.certificateNo}
                     onChange={handleInputChange}
-                    placeholder="e.g., 20e6fee"
-                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                    placeholder="Certificate No *"
+                    className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-black transition"
                   />
                 </div>
 
-                {/* Starting Date */}
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Starting Date *
-                  </label>
-                  <input
-                    type="date"
-                    name="startingDate"
-                    value={form.startingDate}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  />
-                </div>
+                {/* Dates Container - Placed side-by-side like filters */}
+                <div className="grid grid-cols-2 gap-4">
+                  {/* Starting Date */}
+                  <div>
+                    <label className="block text-xs font-medium text-slate-500 mb-1 ml-1">Start Date *</label>
+                    <input
+                      type="date"
+                      name="startingDate"
+                      value={form.startingDate}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2.5 text-sm text-slate-700 border border-gray-200 rounded-lg focus:outline-none focus:border-black transition"
+                    />
+                  </div>
 
-                {/* Award Date */}
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Award Date *
-                  </label>
-                  <input
-                    type="date"
-                    name="awardDate"
-                    value={form.awardDate}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  />
+                  {/* Award Date */}
+                  <div>
+                    <label className="block text-xs font-medium text-slate-500 mb-1 ml-1">Award Date *</label>
+                    <input
+                      type="date"
+                      name="awardDate"
+                      value={form.awardDate}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2.5 text-sm text-slate-700 border border-gray-200 rounded-lg focus:outline-none focus:border-black transition"
+                    />
+                  </div>
                 </div>
 
                 {/* Status */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Status
-                  </label>
                   <select
                     name="status"
                     value={form.status}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                    className="w-full px-4 py-2.5 text-sm text-slate-700 border border-gray-200 rounded-lg focus:outline-none focus:border-black transition bg-white"
                   >
                     <option value="verified">Verified</option>
                     <option value="pending">Pending</option>
@@ -288,74 +273,70 @@ export default function CertificatesAdminPage() {
 
                 {/* Error Message */}
                 {error && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-3 text-red-800 text-sm flex items-center gap-2">
-                    <XCircle className="w-5 h-5 flex-shrink-0" />
-                    {error}
+                  <div className="p-3 bg-red-50 text-red-700 text-sm rounded-lg flex items-start gap-2">
+                    <XCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                    <span>{error}</span>
                   </div>
                 )}
 
                 {/* Success Message */}
                 {loadingStatus === "success" && (
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-3 text-green-800 text-sm flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                    Certificate added successfully!
+                  <div className="p-3 bg-green-50 text-green-700 text-sm rounded-lg flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                    <span>Certificate added successfully.</span>
                   </div>
                 )}
 
-                {/* Submit Button */}
+                {/* Submit Button - Solid Black styling */}
                 <button
                   type="submit"
                   disabled={loadingStatus === "loading"}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-slate-400 disabled:to-slate-400 text-white font-semibold py-3 rounded-lg transition-all flex items-center justify-center gap-2 mt-6"
+                  className="w-full bg-black text-white text-sm font-medium py-3 rounded-lg hover:bg-gray-800 disabled:bg-gray-300 disabled:text-gray-500 transition-all flex items-center justify-center gap-2 mt-4"
                 >
                   {loadingStatus === "loading" ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      Adding...
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Saving...
                     </>
                   ) : (
-                    <>
-                      <Plus className="w-5 h-5" />
-                      Add Certificate
-                    </>
+                    "Add Certificate"
                   )}
                 </button>
               </form>
             </div>
           </div>
 
-          {/* Certificates List */}
+          {/* Certificates List - Flat table design */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6">
-                <h2 className="text-2xl font-bold text-white">
-                  All Certificates ({certificates.length})
+            <div className="border border-gray-200 rounded-xl overflow-hidden">
+              <div className="px-6 py-5 border-b border-gray-200 bg-gray-50/50">
+                <h2 className="text-lg font-bold text-slate-900">
+                  Submissions ({certificates.length})
                 </h2>
               </div>
 
               {certificates.length === 0 ? (
-                <div className="p-8 text-center text-slate-500">
-                  <p className="text-lg">No certificates added yet</p>
-                  <p className="text-sm">Add your first certificate using the form</p>
+                <div className="p-12 text-center text-slate-500">
+                  <p className="text-sm">No certificates found. Add one to get started.</p>
                 </div>
               ) : (
                 <div className="overflow-x-auto">
-                  <table className="w-full">
+                  <table className="w-full text-sm">
                     <thead>
-                      <tr className="bg-slate-50 border-b border-slate-200">
-                        <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">
-                          Student
+                      <tr className="border-b border-gray-200">
+                        <th className="px-6 py-4 text-left font-semibold text-slate-500 whitespace-nowrap">
+                          Name
                         </th>
-                        <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">
+                        <th className="px-6 py-4 text-left font-semibold text-slate-500 whitespace-nowrap">
                           Domain
                         </th>
-                        <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">
-                          Cert No
+                        <th className="px-6 py-4 text-left font-semibold text-slate-500 whitespace-nowrap">
+                          Certificate No
                         </th>
-                        <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">
+                        <th className="px-6 py-4 text-left font-semibold text-slate-500 whitespace-nowrap">
                           Status
                         </th>
-                        <th className="px-6 py-4 text-right text-sm font-semibold text-slate-900">
+                        <th className="px-6 py-4 text-right font-semibold text-slate-500 whitespace-nowrap">
                           Actions
                         </th>
                       </tr>
@@ -364,56 +345,53 @@ export default function CertificatesAdminPage() {
                       {certificates.map((cert, idx) => (
                         <tr
                           key={cert._id || idx}
-                          className="border-b border-slate-100 hover:bg-slate-50 transition"
+                          className="border-b border-gray-100 last:border-0 hover:bg-gray-50/50 transition-colors"
                         >
-                          <td className="px-6 py-4 text-slate-900 font-medium">
+                          <td className="px-6 py-4 text-slate-900">
                             {cert.studentName}
                           </td>
                           <td className="px-6 py-4 text-slate-600">
                             {cert.domain}
                           </td>
-                          <td className="px-6 py-4 text-slate-600 font-mono text-sm">
+                          <td className="px-6 py-4 text-slate-600">
                             {cert.certificateNo}
                           </td>
                           <td className="px-6 py-4">
                             <span
-                              className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-semibold ${
+                              className={`inline-block text-xs font-medium px-2.5 py-1 rounded-md border ${
                                 cert.status === "verified"
-                                  ? "bg-green-100 text-green-800"
+                                  ? "bg-green-50 text-green-700 border-green-200"
                                   : cert.status === "pending"
-                                    ? "bg-yellow-100 text-yellow-800"
-                                    : "bg-red-100 text-red-800"
+                                  ? "bg-yellow-50 text-yellow-700 border-yellow-200"
+                                  : "bg-red-50 text-red-700 border-red-200"
                               }`}
                             >
-                              {cert.status === "verified" && (
-                                <CheckCircle className="w-4 h-4" />
-                              )}
-                              {cert.status}
+                              {cert.status.charAt(0).toUpperCase() + cert.status.slice(1)}
                             </span>
                           </td>
                           <td className="px-6 py-4 text-right">
-                            <div className="flex items-center justify-end gap-2">
+                            <div className="flex items-center justify-end gap-3 text-slate-400">
                               <button
                                 onClick={() =>
                                   router.push(
                                     `/verify-certificate?id=${cert.certificateNo}`
                                   )
                                 }
-                                className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition"
+                                className="hover:text-slate-900 transition-colors"
                                 title="View certificate"
                               >
-                                <Eye className="w-5 h-5" />
+                                <Eye className="w-4 h-4" />
                               </button>
                               <button
                                 onClick={() => handleDelete(cert._id || "")}
                                 disabled={deletingId === cert._id}
-                                className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition disabled:opacity-50"
+                                className="hover:text-red-600 transition-colors disabled:opacity-50"
                                 title="Delete certificate"
                               >
                                 {deletingId === cert._id ? (
-                                  <Loader2 className="w-5 h-5 animate-spin" />
+                                  <Loader2 className="w-4 h-4 animate-spin" />
                                 ) : (
-                                  <Trash2 className="w-5 h-5" />
+                                  <Trash2 className="w-4 h-4" />
                                 )}
                               </button>
                             </div>
@@ -426,6 +404,7 @@ export default function CertificatesAdminPage() {
               )}
             </div>
           </div>
+          
         </div>
       </div>
     </div>
