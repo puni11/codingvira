@@ -10,7 +10,7 @@ interface PageProps {
 
 export default async function Page({ searchParams }: PageProps) {
   const params = await searchParams;
-
+console.log("Certificate ID:", params);
   return (
    <VerifyCertificate
       certificateId={params.certificateid || ""}
