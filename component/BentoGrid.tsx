@@ -42,11 +42,22 @@ const BentoGrid = () => {
 
             {/* 1. PRICING CARD */}
             <div className="md:row-span-2 bg-white rounded-[2rem] p-6 md:p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-              <div>
-                <h3 className="text-slate-500 text-sm font-medium mb-1">Managed IT Plans</h3>
-                <p className="text-xs text-slate-400 mb-4 md:mb-6">Scalable support for growing teams</p>
-                <div className="text-3xl font-bold text-slate-900 mb-1"> ₹20k -  ₹150k<span className="text-sm font-normal text-slate-400">/mo</span></div>
-              </div>
+              
+<div>
+  <h3 className="mb-1 text-sm font-medium text-slate-500">
+    Our Services
+  </h3>
+  <p className="mb-4 text-xs text-slate-400 md:mb-6">
+    Flexible solutions tailored to your needs and budget
+  </p>
+  <div className="mb-1 text-3xl font-bold text-slate-900">
+    ₹15,000 - ₹10,00,000
+    <span className="text-sm font-normal text-slate-400">
+      {" "}onwards
+    </span>
+  </div>
+</div>
+
               
               <div className="space-y-3 my-6 md:my-0">
                 <div className="p-3 border border-slate-100 rounded-xl flex justify-between items-center cursor-pointer hover:bg-slate-50 transition-colors">
