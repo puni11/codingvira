@@ -88,7 +88,7 @@ const Footer = () => {
         {/* --- BOTTOM BAR --- */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-sm text-center md:text-left">
-            Copyright © {new Date().getFullYear()} codingvira labs. All rights reserved.
+            Copyright © {new Date().getFullYear()} CodeVira Labs Private Limited. All rights reserved.
           </p>
           <p className="text-slate-600 text-xs hidden md:block">
             Managed Services for Smart Buinesses

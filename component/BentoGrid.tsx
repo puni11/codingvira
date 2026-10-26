@@ -45,7 +45,7 @@ const BentoGrid = () => {
               <div>
                 <h3 className="text-slate-500 text-sm font-medium mb-1">Managed IT Plans</h3>
                 <p className="text-xs text-slate-400 mb-4 md:mb-6">Scalable support for growing teams</p>
-                <div className="text-3xl font-bold text-slate-900 mb-1">$2k - $15k<span className="text-sm font-normal text-slate-400">/mo</span></div>
+                <div className="text-3xl font-bold text-slate-900 mb-1"> ₹20k -  ₹150k<span className="text-sm font-normal text-slate-400">/mo</span></div>
               </div>
               
               <div className="space-y-3 my-6 md:my-0">
@@ -69,7 +69,7 @@ const BentoGrid = () => {
             <div className="bg-gradient-to-br from-violet-400 to-fuchsia-300 rounded-[2rem] p-8 flex flex-col justify-center text-white shadow-sm relative overflow-hidden min-h-[160px] md:min-h-0">
                <div className="absolute top-0 right-0 w-20 h-20 bg-white opacity-10 rounded-full -mr-10 -mt-10 blur-xl"></div>
                <p className="text-white/90 text-sm font-medium mb-1">Avg. Cloud Savings</p>
-               <h3 className="text-3xl font-bold tracking-tight">$35.9k</h3>
+               <h3 className="text-3xl font-bold tracking-tight"> ₹359k</h3>
                <p className="text-xs text-white/70 mt-2">Per year via optimization</p>
             </div>
 
