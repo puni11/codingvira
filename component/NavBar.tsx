@@ -98,7 +98,7 @@ const NAV_LINKS: NavItem[] = [
   //     { title: "Case Studies", desc: "Real world examples", icon: <Zap className="w-5 h-5 text-pink-500" /> },
   //   ],
   // },
-  // { label: "Blog", hasDropdown: false },
+  { label: "Our Services", href:'/services', hasDropdown: false },
   { label: "Verify Certificate", href:'/verify-certificate', hasDropdown: false },
   { label: "Contact us", href:'/contact-us', hasDropdown: false },
 ];
