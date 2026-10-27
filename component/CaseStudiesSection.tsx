@@ -19,9 +19,9 @@ const CaseStudiesSection = () => {
             </h2>
           </div>
           
-          <button className="hidden md:flex items-center gap-2 text-slate-900  hover:gap-4 transition-all">
+          {/* <button className="hidden md:flex items-center gap-2 text-slate-900  hover:gap-4 transition-all">
             View all case studies <ArrowRight className="w-5 h-5" />
-          </button>
+          </button> */}
         </div>
 
         {/* --- FEATURED CASE STUDY (Large Card) --- */}
@@ -88,9 +88,7 @@ const CaseStudiesSection = () => {
           </div>
 
           {/* Hover Arrow Effect */}
-          <div className="absolute top-8 right-8 w-12 h-12 bg-white border border-slate-100 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
-             <ArrowUpRight className="w-5 h-5 text-slate-900" />
-          </div>
+          
         </div>
 
         {/* --- SECONDARY GRID (3 Columns) --- */}
@@ -153,12 +151,7 @@ const CaseStudyCard = ({ category, title, metric, icon, color }: { category: str
         </h3>
       </div>
 
-      <div className="pt-6 border-t border-slate-50 flex items-center justify-between">
-        <span className=" text-slate-900">{metric}</span>
-        <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-colors">
-           <ArrowRight className="w-4 h-4" />
-        </div>
-      </div>
+     
 
     </div>
   );

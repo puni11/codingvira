@@ -30,10 +30,10 @@ const AzureServicesDark = () => {
           <p className="text-slate-400 text-lg mb-8 leading-relaxed">
             We are fully qualified Azure consultants providing the expertise to migrate, manage, and modernize your infrastructure on the Microsoft Cloud.
           </p>
-          <button className="bg-[#1F1F1F] hover:bg-[#2A2A2A] text-white px-8 py-3 rounded-full text-sm font-medium transition-all border border-white/10 flex items-center gap-2 group">
+          {/* <button className="bg-[#1F1F1F] hover:bg-[#2A2A2A] text-white px-8 py-3 rounded-full text-sm font-medium transition-all border border-white/10 flex items-center gap-2 group">
             Explore all services
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </button> */}
         </div>
 
         {/* --- 3-COLUMN CONTENT GRID --- */}

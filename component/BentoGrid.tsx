@@ -11,6 +11,7 @@ import {
   Users
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const BentoGrid = () => {
   return (
@@ -70,10 +71,10 @@ const BentoGrid = () => {
                 </div>
               </div>
 
-              <button className="w-full bg-[#1A1A1A] hover:bg-black text-white py-3.5 rounded-full text-sm font-medium flex items-center justify-center gap-2 group transition-all">
+              <Link href={'/contact-us'} className="w-full bg-[#1A1A1A] hover:bg-black text-white py-3.5 rounded-full text-sm font-medium flex items-center justify-center gap-2 group transition-all">
                 Get Custom Quote
                 <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
             </div>
 
             {/* 2. GRADIENT CARD */}

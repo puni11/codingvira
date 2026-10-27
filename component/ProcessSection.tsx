@@ -24,10 +24,10 @@ const ProcessSection = () => {
               We don't just build high-performance web applications; we manage the entire infrastructure that powers them. One partner for your entire digital lifecycle.
             </p>
             
-            <button className="bg-[#1A1A1A] hover:bg-black text-white px-8 py-3.5 rounded-full font-medium transition-all flex items-center gap-2 group shadow-lg">
+            {/* <button className="bg-[#1A1A1A] hover:bg-black text-white px-8 py-3.5 rounded-full font-medium transition-all flex items-center gap-2 group shadow-lg">
               Start your project
               <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </button> */}
           </div>
         </div>
 

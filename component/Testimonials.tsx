@@ -203,10 +203,10 @@ const Testimonials = () => {
                 />
             ))}
         </div>
-
+{/* 
         <button className="mt-8 bg-[#1A1A1A] hover:bg-black text-white px-8 py-3 rounded-full font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
           Read success stories
-        </button>
+        </button> */}
 
       </div>
     </section>

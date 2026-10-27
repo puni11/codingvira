@@ -185,13 +185,13 @@ const IntegrationSection = () => {
           Easily connect NextSaaS AI to Canva, Notion, Adobe, Google Slides, Webflow, and more.
         </p>
         
-        <button className="bg-[#1A1A1A] hover:bg-black text-white px-8 py-3.5 rounded-full font-medium transition-all flex items-center gap-2 mx-auto group">
+        {/* <button className="bg-[#1A1A1A] hover:bg-black text-white px-8 py-3.5 rounded-full font-medium transition-all flex items-center gap-2 mx-auto group">
           Explore integration
           <span className="group-hover:translate-x-1 transition-transform">
              <span className="opacity-50 text-xs mr-1">//</span> 
              <ArrowRight className="w-4 h-4 inline-block" />
           </span>
-        </button>
+        </button> */}
       </div>
 
     </section>

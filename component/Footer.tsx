@@ -66,7 +66,7 @@ const Footer = () => {
 
             {/* Column 2 */}
             <div className="flex flex-col space-y-4">
-              <h4 className="text-white font-medium text-lg mb-2">Support</h4>
+              {/* <h4 className="text-white font-medium text-lg mb-2">Support</h4> */}
               {/* <FooterLink href="#">FAQ</FooterLink>
               <FooterLink href="#">Documentation</FooterLink>
               <FooterLink href="#">Tutorials</FooterLink>
@@ -75,7 +75,7 @@ const Footer = () => {
 
             {/* Column 3 */}
             <div className="flex flex-col space-y-4">
-              <h4 className="text-white font-medium text-lg mb-2">Legal Policies</h4>
+              {/* <h4 className="text-white font-medium text-lg mb-2">Legal Policies</h4> */}
               {/* <FooterLink href="#">Terms & Conditions</FooterLink>
               <FooterLink href="#">Privacy Policy</FooterLink>
               <FooterLink href="#">Refund Policy</FooterLink>

@@ -68,9 +68,9 @@ const BlogSection = () => {
               tech, and strategies.
             </h2>
           </div>
-          <button className="hidden md:flex items-center gap-2 text-slate-900  hover:gap-4 transition-all group">
+          {/* <button className="hidden md:flex items-center gap-2 text-slate-900  hover:gap-4 transition-all group">
             View all articles <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </button> */}
         </div>
 
         {/* --- MAIN CONTENT GRID --- */}
@@ -109,12 +109,12 @@ const BlogSection = () => {
             </p>
             
             {/* Read More Icon/Button */}
-            <div className="mt-auto flex items-center gap-3 text-slate-900  text-lg group/btn">
+            {/* <div className="mt-auto flex items-center gap-3 text-slate-900  text-lg group/btn">
               Read Article
               <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center group-hover/btn:bg-violet-600 group-hover/btn:text-white transition-all duration-300 group-hover/btn:rotate-45">
                  <ArrowUpRight className="w-5 h-5" />
               </div>
-            </div>
+            </div> */}
           </div>
 
 
