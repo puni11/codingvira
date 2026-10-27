@@ -86,21 +86,21 @@ setTimeout(() => setFormStatus("idle"), 3000);
             <ContactCard 
               icon={<MapPin className="w-6 h-6" />}
               title="Our Address"
-              detail="2464 Royal Ln. Mesa, New Jersey 45463"
+              detail="66/188, Heera path, Sanganer, Mansarovar, Jaipur – 302020, Rajasthan"
               gradientColor="from-violet-500 to-purple-500"
               gradientPosition="top-[-50%] right-[-50%]"
             />
             <ContactCard 
               icon={<Mail className="w-6 h-6" />}
               title="Email Us"
-              detail="hello@nextsaas.com"
+              detail="info@codevira.com"
               gradientColor="from-violet-400 to-purple-500"
               gradientPosition="top-[-20%] right-[20%]"
             />
             <ContactCard 
               icon={<Phone className="w-6 h-6" />}
               title="Call Us"
-              detail="+391 (0)35 2568 4593"
+              detail="+91 97823 21210"
               gradientColor="from-violet-500 to-purple-500"
               gradientPosition="top-[10%] left-[-20%]"
             />

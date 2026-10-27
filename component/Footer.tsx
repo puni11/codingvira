@@ -61,7 +61,7 @@ const Footer = () => {
               {/* <FooterLink href="#">About Us</FooterLink>
               <FooterLink href="#">Careers</FooterLink>
               <FooterLink href="#">Case Studies</FooterLink> */}
-              <FooterLink href="#">Contact Us</FooterLink>
+              <FooterLink href="/contact-us">Contact Us</FooterLink>
             </div>
 
             {/* Column 2 */}
