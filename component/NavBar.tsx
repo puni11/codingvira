@@ -50,55 +50,55 @@ type NavItem = {
 };
 
 const NAV_LINKS: NavItem[] = [
-  {
-    label: "Cloud Services",
-    hasDropdown: true,
-    dropdownData: [
-      { 
-      title: "Amazon Web Services", 
-      desc: "Scalable infrastructure & storage", 
-      icon: <Cloud className="w-5 h-5 text-[#141414]" /> // AWS Orange
-    },
-    { 
-      title: "Microsoft Azure", 
-      desc: "Enterprise hybrid cloud solutions", 
-      icon: <AppWindow className="w-5 h-5 text-[#141414]" /> // Azure Blue
-    },
-    { 
-      title: "Google Cloud Platform", 
-      desc: "AI, Data Analytics & Kubernetes", 
-      icon: <Globe2 className="w-5 h-5 text-[#141414]" /> // Google Blue
-    },
-    { 
-      title: "Private Cloud", 
-      desc: "Dedicated single-tenant environments", 
-      icon: <ServerIcon className="w-5 h-5 text-[#141414]" /> 
-    },
-    { 
-      title: "Multi-Cloud Security", 
-      desc: "Unified protection across all platforms", 
-      icon: <ShieldCheck className="w-5 h-5 text-[#141414]" /> 
-    },
-    ],
-  },
-  {
-    label: "Product Services",
-    hasDropdown: true,
-    dropdownData: [
-      { title: "Modern Frontend", desc: "React, Next.js, Vue", icon: <Layout className="w-5 h-5 text-[#141414]" /> },
-      { title: "Backend Systems", desc: "Node.js, Python, Go", icon: <Terminal className="w-5 h-5 text-[#141414]" /> },
-      { title: "E-commerce", desc: "Shopify & Custom Stores", icon: <ShoppingBag className="w-5 h-5 text-[#141414]" /> },
-      { title: "Headless CMS", desc: "Sanity, Strapi, Contentful", icon: <FileText className="w-5 h-5 text-[#141414]" /> },
-    ],
-  },
-  {
-    label: "Insights",
-    hasDropdown: true,
-    dropdownData: [
-      { title: "Case Studies", desc: "Real world examples", icon: <Zap className="w-5 h-5 text-pink-500" /> },
-    ],
-  },
-  { label: "Blog", hasDropdown: false },
+  // {
+  //   label: "Cloud Services",
+  //   hasDropdown: true,
+  //   dropdownData: [
+  //     { 
+  //     title: "Amazon Web Services", 
+  //     desc: "Scalable infrastructure & storage", 
+  //     icon: <Cloud className="w-5 h-5 text-[#141414]" /> // AWS Orange
+  //   },
+  //   { 
+  //     title: "Microsoft Azure", 
+  //     desc: "Enterprise hybrid cloud solutions", 
+  //     icon: <AppWindow className="w-5 h-5 text-[#141414]" /> // Azure Blue
+  //   },
+  //   { 
+  //     title: "Google Cloud Platform", 
+  //     desc: "AI, Data Analytics & Kubernetes", 
+  //     icon: <Globe2 className="w-5 h-5 text-[#141414]" /> // Google Blue
+  //   },
+  //   { 
+  //     title: "Private Cloud", 
+  //     desc: "Dedicated single-tenant environments", 
+  //     icon: <ServerIcon className="w-5 h-5 text-[#141414]" /> 
+  //   },
+  //   { 
+  //     title: "Multi-Cloud Security", 
+  //     desc: "Unified protection across all platforms", 
+  //     icon: <ShieldCheck className="w-5 h-5 text-[#141414]" /> 
+  //   },
+  //   ],
+  // },
+  // {
+  //   label: "Product Services",
+  //   hasDropdown: true,
+  //   dropdownData: [
+  //     { title: "Modern Frontend", desc: "React, Next.js, Vue", icon: <Layout className="w-5 h-5 text-[#141414]" /> },
+  //     { title: "Backend Systems", desc: "Node.js, Python, Go", icon: <Terminal className="w-5 h-5 text-[#141414]" /> },
+  //     { title: "E-commerce", desc: "Shopify & Custom Stores", icon: <ShoppingBag className="w-5 h-5 text-[#141414]" /> },
+  //     { title: "Headless CMS", desc: "Sanity, Strapi, Contentful", icon: <FileText className="w-5 h-5 text-[#141414]" /> },
+  //   ],
+  // },
+  // {
+  //   label: "Insights",
+  //   hasDropdown: true,
+  //   dropdownData: [
+  //     { title: "Case Studies", desc: "Real world examples", icon: <Zap className="w-5 h-5 text-pink-500" /> },
+  //   ],
+  // },
+  // { label: "Blog", hasDropdown: false },
   { label: "Verify Certificate", href:'/verify-certificate', hasDropdown: false },
   { label: "Contact us", href:'/contact-us', hasDropdown: false },
 ];
@@ -230,7 +230,7 @@ const Navbar = () => {
         </div>
 
         {/* --- RIGHT: DESKTOP CTA --- */}
-        <div
+        {/* <div
           className={cn(
             "hidden md:flex items-center transition-all duration-500",
             hoveredTab && "blur-[2px] opacity-60"
@@ -239,7 +239,7 @@ const Navbar = () => {
           <Button onClick={handleLogin}  bgClass="bg-[#8b5cf6]" hoverClass="bg-[#7c3aed]" border={true}>
             Get Started
           </Button>
-        </div>
+        </div> */}
 
         {/* --- MOBILE: TOGGLE BUTTON --- */}
         <div className="md:hidden z-50 relative">

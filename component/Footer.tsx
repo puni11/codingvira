@@ -41,14 +41,14 @@ const Footer = () => {
             </p>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-5">
+            {/* <div className="flex items-center gap-5">
               <SocialLink icon={<Facebook className="w-4 h-4" />} href="#" />
               <SocialLink icon={<Instagram className="w-4 h-4" />} href="#" />
               <SocialLink icon={<Youtube className="w-4 h-4" />} href="#" />
               <SocialLink icon={<Linkedin className="w-4 h-4" />} href="#" />
               <SocialLink icon={<Globe className="w-4 h-4" />} href="#" />
               <SocialLink icon={<Palette className="w-4 h-4" />} href="#" />
-            </div>
+            </div> */}
           </div>
 
           {/* --- RIGHT COLUMNS: LINKS --- */}
@@ -58,29 +58,29 @@ const Footer = () => {
             {/* Column 1 */}
             <div className="flex flex-col space-y-4">
               <h4 className="text-white font-medium text-lg mb-2">Company</h4>
-              <FooterLink href="#">About Us</FooterLink>
+              {/* <FooterLink href="#">About Us</FooterLink>
               <FooterLink href="#">Careers</FooterLink>
-              <FooterLink href="#">Case Studies</FooterLink>
+              <FooterLink href="#">Case Studies</FooterLink> */}
               <FooterLink href="#">Contact Us</FooterLink>
             </div>
 
             {/* Column 2 */}
             <div className="flex flex-col space-y-4">
               <h4 className="text-white font-medium text-lg mb-2">Support</h4>
-              <FooterLink href="#">FAQ</FooterLink>
+              {/* <FooterLink href="#">FAQ</FooterLink>
               <FooterLink href="#">Documentation</FooterLink>
               <FooterLink href="#">Tutorials</FooterLink>
-              <FooterLink href="#">Support Portal</FooterLink>
+              <FooterLink href="#">Support Portal</FooterLink> */}
             </div>
 
             {/* Column 3 */}
             <div className="flex flex-col space-y-4">
               <h4 className="text-white font-medium text-lg mb-2">Legal Policies</h4>
-              <FooterLink href="#">Terms & Conditions</FooterLink>
+              {/* <FooterLink href="#">Terms & Conditions</FooterLink>
               <FooterLink href="#">Privacy Policy</FooterLink>
               <FooterLink href="#">Refund Policy</FooterLink>
               <FooterLink href="#">GDPR Compliance</FooterLink>
-              <FooterLink href="#">Affiliate Policy</FooterLink>
+              <FooterLink href="#">Affiliate Policy</FooterLink> */}
             </div>
           </div>
         </div>

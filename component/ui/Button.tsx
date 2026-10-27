@@ -1,15 +1,18 @@
+"use client"
+
 import { ReactNode, ButtonHTMLAttributes } from "react"
+import { useRouter } from "next/navigation"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   bgClass?: string
   hoverClass?: string
-  border?:boolean
+  border?: boolean
   borderClass?: string
   textClass?: string
-  shadow?:boolean,
-  shadowClass?:string,
-  hoverShadowClass?:string,
-  shadowSize?:string
+  shadow?: boolean
+  shadowClass?: string
+  hoverShadowClass?: string
+  shadowSize?: string
   icon?: ReactNode
 }
 
@@ -17,22 +20,29 @@ export default function Button({
   bgClass = "bg-gray-950",
   hoverClass = "hover:bg-violet-700",
   textClass = "text-white",
-
   border = true,
   borderClass = "border-gray-400",
-
   shadow = true,
   shadowClass = "shadow-purple-200",
   hoverShadowClass = "hover:shadow-purple-300",
   shadowSize = "shadow-lg",
-
   icon,
   children,
+  onClick,
   ...rest
 }: ButtonProps) {
+  const router = useRouter()
+
   return (
     <button
       {...rest}
+      onClick={(event) => {
+        onClick?.(event)
+
+        if (!event.defaultPrevented) {
+          router.push("/contact-us")
+        }
+      }}
       className={`
         group
         ${bgClass}
@@ -51,5 +61,3 @@ export default function Button({
     </button>
   )
 }
-
-
